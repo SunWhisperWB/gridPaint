@@ -20,72 +20,15 @@ public class Position {
         rectangle = new Rectangle(this.x, this.y, grid.getCellSize(), grid.getCellSize());
     }
 
-    public int getY() {
-        return y;
-    }
-
-    public int getX() {
-        return x;
-    }
-
-    public void setX(int x) {
-        this.x = x;
-    }
-
-    public void setY(int y) {
-        this.y = y;
-    }
-
-    public void show(){
-
-        rectangle.delete();
-        rectangle.fill();
-    }
-
-    public void move(GridDirection direction){
-
-
-        switch (direction) {
-
-            case UP:
-                moveUp();
-                break;
-            case DOWN:
-                moveDown();
-                break;
-            case LEFT:
-                moveLeft();
-                break;
-            case RIGHT:
-                moveRight();
-                break;
-        }
-
-        System.out.println("x: "+x+ "y:"+y);
+    public void translate(int x, int y) {
+        rectangle.translate(x, y);
+        this.x = this.x+x;
+        this.y = this.y+y;
+        System.out.println(this.x+ " " + this.y);
 
     }
 
-    private void moveRight() {
-        x = x + grid.getCellSize();
-        this.rectangle.translate(grid.getCellSize(), 0);
-    }
-
-    private void moveLeft() {
-        x = x - grid.getCellSize();
-        this.rectangle.translate(-grid.getCellSize(), 0);
-    }
-
-    private void moveDown() {
-        y = y + grid.getCellSize();
-        this.rectangle.translate(0,grid.getCellSize());
-    }
-
-    private void moveUp() {
-        y = y - grid.getCellSize();
-        this.rectangle.translate(0, -grid.getCellSize());
-    }
-
-    public void setPainted(boolean painted) {
-        this.painted = painted;
+    public Rectangle getRectangle() {
+        return rectangle;
     }
 }

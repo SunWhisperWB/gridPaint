@@ -30,7 +30,7 @@ public class Grid {
 
         cursor = new Cursor(this);
         Position cursorPos = cursor.getPos();
-        cursorPos.show();
+        cursorPos.getRectangle().fill();
 
     }
 
@@ -41,7 +41,6 @@ public class Grid {
     public void moveCursor() {
 
             cursor.move();
-            cursor.getPos().show();
 
     }
 

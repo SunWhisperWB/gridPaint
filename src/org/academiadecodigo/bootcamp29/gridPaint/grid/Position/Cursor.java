@@ -1,10 +1,10 @@
 package org.academiadecodigo.bootcamp29.gridPaint.grid.Position;
 
 import org.academiadecodigo.bootcamp29.gridPaint.grid.Grid;
-import org.academiadecodigo.simplegraphics.keyboard.KeyboardHandler;
+import org.academiadecodigo.bootcamp29.gridPaint.grid.Position.keyboard.CursorKeyboardHandler;
 
 
-public class Cursor implements KeyboardHandler {
+public class Cursor {
 
     private Position pos;
     private Grid grid;
@@ -18,6 +18,12 @@ public class Cursor implements KeyboardHandler {
 
     public Position getPos() {
         return pos;
+    }
+
+    public void move(){
+
+            new CursorKeyboardHandler(this.getPos());
+
     }
 
 }
