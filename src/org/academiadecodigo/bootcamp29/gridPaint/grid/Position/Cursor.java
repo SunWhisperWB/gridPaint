@@ -126,11 +126,32 @@ public class Cursor implements KeyboardHandler {
 
     public void move(){
 
-        if(direction==null){
-            return;
-        }
-        pos.move(direction);
+        if (direction!=null) {
 
+            switch (direction) {
+                case LEFT:
+                    if(pos.getX()>grid.PADDING) {
+                        pos.move(direction);
+                        break;
+                    }
+                case RIGHT:
+                    if(pos.getX()<(grid.PADDING+(grid.getCols()*grid.getCellSize()))) {
+                        pos.move(direction);
+                        break;
+                    }
+                case UP:
+                    if(pos.getY()>grid.PADDING) {
+                        pos.move(direction);
+                        break;
+                    }
+                case DOWN:
+                    if(pos.getY()<(grid.PADDING+(grid.getRows()*grid.getCellSize()))) {
+                        pos.move(direction);
+                        break;
+                    }
+            }
+
+        }
     }
 
 

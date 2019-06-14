@@ -40,9 +40,16 @@ public class Grid {
 
     public void moveCursor() {
 
-
             cursor.move();
             cursor.getPos().show();
 
+    }
+
+    public int getCols() {
+        return cols;
+    }
+
+    public int getRows() {
+        return rows;
     }
 }
