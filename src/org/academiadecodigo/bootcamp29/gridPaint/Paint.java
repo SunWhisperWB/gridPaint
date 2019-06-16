@@ -17,18 +17,7 @@ public class Paint {
     }
 
     public void start() {
-
-        while (true) {
-
-            try {
-                Thread.sleep(delay);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-
             moveCursor();
-
-        }
     }
 
     private void moveCursor() {

@@ -1,9 +1,8 @@
-package org.academiadecodigo.bootcamp29.gridPaint.grid.Position.keyboard;
+package org.academiadecodigo.bootcamp29.gridPaint.grid.keyboard;
 
 
-import org.academiadecodigo.bootcamp29.gridPaint.grid.Position.Cursor;
-import org.academiadecodigo.bootcamp29.gridPaint.grid.Position.Position;
-import org.academiadecodigo.simplegraphics.graphics.Rectangle;
+import org.academiadecodigo.bootcamp29.gridPaint.grid.Grid;
+import org.academiadecodigo.bootcamp29.gridPaint.grid.position.Position;
 import org.academiadecodigo.simplegraphics.keyboard.Keyboard;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardEvent;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardEventType;
@@ -15,10 +14,12 @@ public class CursorKeyboardHandler implements KeyboardHandler {
 
     private Position cursor;
     private Keyboard keyboard;
+    private Grid grid;
 
-    public CursorKeyboardHandler(Position cursor){
+    public CursorKeyboardHandler(Position cursor, Grid grid){
 
         this.cursor = cursor;
+        this.grid = grid;
         keyboard = new Keyboard(this);
         init();
 
@@ -44,12 +45,16 @@ public class CursorKeyboardHandler implements KeyboardHandler {
         down.setKey(KeyboardEvent.KEY_DOWN);
         down.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
 
+        KeyboardEvent space = new KeyboardEvent();
+        down.setKey(KeyboardEvent.KEY_SPACE);
+        down.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
+
 
         keyboard.addEventListener(left);
         keyboard.addEventListener(right);
         keyboard.addEventListener(up);
         keyboard.addEventListener(down);
-
+        keyboard.addEventListener(space);
     }
 
 
@@ -58,20 +63,36 @@ public class CursorKeyboardHandler implements KeyboardHandler {
 
         switch (keyboardEvent.getKey()) {
             case KeyboardEvent.KEY_LEFT:
-                cursor.translate(-10, 0);
+                if(cursor.getX()>grid.PADDING) {
+                    cursor.translate(-25, 0);
+                    break;
+                }
                 break;
 
             case KeyboardEvent.KEY_RIGHT:
-                cursor.translate(10, 0);
+                if(cursor.getX()<(grid.getCellSize()*(grid.getCols()-1)+grid.PADDING)) {
+                    cursor.translate(25, 0);
+                    break;
+                }
                 break;
 
             case KeyboardEvent.KEY_UP:
-                cursor.translate(0,  -10);
+                if (cursor.getY()>grid.PADDING) {
+                    cursor.translate(0, -25);
+                    break;
+                }
                 break;
 
             case KeyboardEvent.KEY_DOWN:
-                cursor.translate(0, 10);
+                if (cursor.getY()<(grid.getCellSize()*(grid.getRows()-1)+grid.PADDING)) {
+                    cursor.translate(0, 25);
+                    break;
+                }
                 break;
+
+            case KeyboardEvent.KEY_SPACE:
+                break;
+
 
         }
 

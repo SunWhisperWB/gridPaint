@@ -1,7 +1,6 @@
-package org.academiadecodigo.bootcamp29.gridPaint.grid.Position;
+package org.academiadecodigo.bootcamp29.gridPaint.grid.position;
 
 import org.academiadecodigo.bootcamp29.gridPaint.grid.Grid;
-import org.academiadecodigo.bootcamp29.gridPaint.grid.GridDirection;
 import org.academiadecodigo.simplegraphics.graphics.Rectangle;
 
 
@@ -10,7 +9,6 @@ public class Position {
     private int x;
     private int y;
     private Grid grid;
-    private boolean painted;
     private Rectangle rectangle;
 
     public Position(Grid grid, int x, int y){
@@ -18,6 +16,14 @@ public class Position {
         this.y = grid.PADDING + (y*grid.getCellSize());
         this.grid = grid;
         rectangle = new Rectangle(this.x, this.y, grid.getCellSize(), grid.getCellSize());
+    }
+
+    public int getX() {
+        return x;
+    }
+
+    public int getY() {
+        return y;
     }
 
     public void translate(int x, int y) {

@@ -1,7 +1,8 @@
-package org.academiadecodigo.bootcamp29.gridPaint.grid.Position;
+package org.academiadecodigo.bootcamp29.gridPaint.grid.position;
+
 
 import org.academiadecodigo.bootcamp29.gridPaint.grid.Grid;
-import org.academiadecodigo.bootcamp29.gridPaint.grid.Position.keyboard.CursorKeyboardHandler;
+import org.academiadecodigo.bootcamp29.gridPaint.grid.keyboard.CursorKeyboardHandler;
 
 
 public class Cursor {
@@ -22,7 +23,7 @@ public class Cursor {
 
     public void move(){
 
-            new CursorKeyboardHandler(this.getPos());
+            new CursorKeyboardHandler(pos, grid);
 
     }
 
