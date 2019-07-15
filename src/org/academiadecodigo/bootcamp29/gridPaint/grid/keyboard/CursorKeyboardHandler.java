@@ -46,8 +46,8 @@ public class CursorKeyboardHandler implements KeyboardHandler {
         down.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
 
         KeyboardEvent space = new KeyboardEvent();
-        down.setKey(KeyboardEvent.KEY_SPACE);
-        down.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
+        space.setKey(KeyboardEvent.KEY_SPACE);
+        space.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
 
 
         keyboard.addEventListener(left);
@@ -91,9 +91,9 @@ public class CursorKeyboardHandler implements KeyboardHandler {
                 break;
 
             case KeyboardEvent.KEY_SPACE:
+
+
                 break;
-
-
         }
 
     }
