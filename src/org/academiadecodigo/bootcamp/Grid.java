@@ -1,11 +1,11 @@
-package bootcamp;
+package org.academiadecodigo.bootcamp;
 
 import org.academiadecodigo.bootcamp.grid.Cell;
 
 public class Grid {
 
     public static final int CELL_SIZE = 20;
-    public static final int PADDING = 10§   §;
+    public static final int PADDING = 10;
     private int rows;
     private int cols;
 
